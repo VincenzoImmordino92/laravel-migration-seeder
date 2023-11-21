@@ -7,6 +7,7 @@
       <tr>
         <th scope="col">id</th>
         <th scope="col">Azienda</th>
+        <th scope="col">Data</th>
         <th scope="col">Stazione di partenza</th>
         <th scope="col">Stazione di arrivo</th>
         <th scope="col">Orario di partenza</th>
@@ -22,6 +23,7 @@
         <tr>
             <td>{{$train->id}}</td>
             <td>{{$train->Azienda}}</td>
+            <td>{{$train->Data->format('d/m/y')}}</td>
             <td>{{$train->Stazione_di_partenza}}</td>
             <td>{{$train->Stazione_di_arrivo}}</td>
             <td>{{$train->Orario_di_partenza}}</td>
@@ -37,12 +39,17 @@
     </tbody>
   </table>
 
+  <form action="{{route('test')}}">
+    <input type="date" name="data" required>
+    <button type="submit" class="btn btn-dark">Cerca</button>
+  </form>
 
   <table class="table table-dark table-hover custom mt-5">
     <thead>
       <tr>
         <th scope="col">id</th>
         <th scope="col">Azienda</th>
+        <th scope="col">Data</th>
         <th scope="col">Stazione di partenza</th>
         <th scope="col">Stazione di arrivo</th>
         <th scope="col">Orario di partenza</th>
@@ -54,7 +61,7 @@
       </tr>
     </thead>
     <tbody>
-        @foreach ($trains as $train)
+        @foreach ($trains_order_desc as $train)
         <tr>
             <td>{{$train->id}}</td>
             <td>{{$train->Azienda}}</td>

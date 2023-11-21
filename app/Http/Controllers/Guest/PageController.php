@@ -9,15 +9,25 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index(){
-        $trains = Train::all();
-        return view('home', compact('trains'));
+        $trains = Train::orderBy('Data')
+        ->orderBy('Orario_di_partenza')
+        ->get();
+
+        $trains_order_desc = Train::orderBy('id','desc')
+        ->get();
+
+
+
+        return view('home', compact('trains','trains_order_desc'));
     }
 
-    public function trainTest(){
-        $trains = Train::where('Data','>=','2023-11-21')
-        /* ->where() */
+    public function trainTest(Request $request){
+        $data = $request->input('data',now());
+
+        $trains = Train::where('Data','>=',$data)
         ->get();
-        /* $race_train = $trains->addSelect('Stazione_di_partenza') */
+
+
         return view('test', compact('trains'));
     }
 }
