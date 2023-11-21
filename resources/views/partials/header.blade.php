@@ -1,10 +1,10 @@
 <header>
         <ul class="nav">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
+            <a class="nav-link active" aria-current="page" href="{{route('test')}}">Test</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Boh</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">Link</a>

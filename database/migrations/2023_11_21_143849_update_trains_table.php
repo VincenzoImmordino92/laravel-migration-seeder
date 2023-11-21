@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->date('Data')->after('Numero_carrozze');
+            $table->date('Data')->default(now())->after('Numero_carrozze');
         });
     }
 
